@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Custom theme for SIMAS */
+@theme {
+  /* Colors - Primary Teal from graduation-cap.svg */
+  --color-primary: #049787;
+  --color-primary-50: #E6FAF8;
+  --color-primary-100: #CCF5F0;
+  --color-primary-200: #99EBE1;
+  --color-primary-300: #66E1D2;
+  --color-primary-400: #33D7C3;
+  --color-primary-500: #049787;
+  --color-primary-600: #03786C;
+  --color-primary-700: #025951;
+  --color-primary-800: #013A36;
+  --color-primary-900: #011B1A;
+
+  /* Fonts - Plus Jakarta Sans */
+  --font-family-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+html, body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Apply Plus Jakarta Sans to all text elements */
+h1, h2, h3, h4, h5, h6, p, span, a, button, li, label, input, textarea, select {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif !important;
+}
