@@ -1,5 +1,10 @@
 <script setup lang="ts">
-const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+
+const getIcon = (name: string) => {
+  const key = `/asssets/Icons/${name}.svg`
+  return icons[key] || ''
+}
 
 const steps = [
   {
@@ -47,7 +52,7 @@ const steps = [
           <!-- Card -->
           <div class="relative mb-[24px] flex h-[96px] w-[96px] items-center justify-center rounded-[12px] border border-[rgba(4,151,135,0.2)] bg-white p-px shadow-[0px_8px_8px_rgba(8,32,29,0.06)]">
             <img
-              :src="getIconUrl(step.icon)"
+              :src="getIcon(step.icon)"
               :alt="step.title"
               class="size-[40px]"
             />

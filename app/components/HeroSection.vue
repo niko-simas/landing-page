@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const studentIllustration = new URL('~/asssets/illustrations/student.svg', import.meta.url).href
+const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+const illustrations = import.meta.glob('~/asssets/illustrations/*.svg', { eager: true, as: 'url' })
+
+const getIcon = (name: string) => {
+  const key = `/asssets/Icons/${name}.svg`
+  return icons[key] || ''
+}
+
+const getIllustration = (name: string) => {
+  const key = `/asssets/illustrations/${name}.svg`
+  return illustrations[key] || ''
+}
 </script>
 
 <template>
@@ -33,7 +44,7 @@ const studentIllustration = new URL('~/asssets/illustrations/student.svg', impor
       <!-- Right Illustration -->
       <div class="shrink-0">
         <img
-          :src="studentIllustration"
+          :src="getIllustration('student')"
           alt="Student Illustration"
           class="h-[450px] w-[550px] object-contain"
         />

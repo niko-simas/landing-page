@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+
+const getIcon = (name: string) => {
+  // Map icon names to actual file names (handle hyphenated names)
+  const iconMap: Record<string, string> = {
+    'bell-ring-1': 'bell-ring',
+    'bell-ring-2': 'bell-ring'
+  }
+  const mappedName = iconMap[name] || name
+  const key = `/asssets/Icons/${mappedName}.svg`
+  return icons[key] || ''
+}
 
 const benefits = [
   'Notifikasi kehadiran anak saat tiba di sekolah',
@@ -18,7 +29,7 @@ const benefits = [
           <div class="flex items-center gap-[16px] rounded-[12px] border border-[rgba(4,151,135,0.15)] bg-white p-[16px] shadow-[0px_2px_8px_rgba(8,32,29,0.04)]">
             <div class="relative flex size-[48px] shrink-0 items-center justify-center rounded-full bg-[rgba(4,151,135,0.1)]">
               <img
-                :src="getIconUrl('bell-ring-2')"
+                :src="getIcon('bell-ring-2')"
                 alt="Bell"
                 class="size-[20px]"
               />
@@ -43,7 +54,7 @@ const benefits = [
         <div class="mt-[8px] flex flex-col items-start gap-[16px]">
           <div v-for="benefit in benefits" :key="benefit" class="flex items-center gap-[12px]">
             <img
-              :src="getIconUrl('circle-check')"
+              :src="getIcon('circle-check')"
               alt="Check"
               class="size-[24px]"
             />

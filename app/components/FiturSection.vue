@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+
+const getIcon = (name: string) => {
+  // Map icon names to actual file names (handle hyphenated names)
+  const iconMap: Record<string, string> = {
+    'bell-ring-1': 'bell-ring',
+    'bell-ring-2': 'bell-ring'
+  }
+  const mappedName = iconMap[name] || name
+  const key = `/asssets/Icons/${mappedName}.svg`
+  return icons[key] || ''
+}
 
 const features = [
   {
@@ -33,7 +44,7 @@ const features = [
       <div class="flex items-stretch justify-center gap-[32px]">
         <div v-for="feature in features" :key="feature.title" class="flex min-w-0 flex-[1] flex-col items-start gap-[8px] rounded-[12px] border border-[rgba(188,201,197,0.3)] bg-[#e5fff9] p-[32px]">
           <img
-            :src="getIconUrl(feature.icon)"
+            :src="getIcon(feature.icon)"
             :alt="feature.title"
             class="mb-[8px] size-[30px]"
           />
