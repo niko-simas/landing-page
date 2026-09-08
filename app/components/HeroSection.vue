@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const studentIllustration = new URL('~/asssets/illustrations/student.svg', import.meta.url).href
 </script>
 
 <template>
@@ -32,7 +33,7 @@
       <!-- Right Illustration -->
       <div class="shrink-0">
         <img
-          src="/asssets/illustrations/student.svg"
+          :src="studentIllustration"
           alt="Student Illustration"
           class="h-[450px] w-[550px] object-contain"
         />

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+
 const features = [
   {
     icon: 'baseline-cast-for-education',
@@ -31,7 +33,7 @@ const features = [
       <div class="flex items-stretch justify-center gap-[32px]">
         <div v-for="feature in features" :key="feature.title" class="flex min-w-0 flex-[1] flex-col items-start gap-[8px] rounded-[12px] border border-[rgba(188,201,197,0.3)] bg-[#e5fff9] p-[32px]">
           <img
-            :src="`/asssets/Icons/${feature.icon}.svg`"
+            :src="getIconUrl(feature.icon)"
             :alt="feature.title"
             class="mb-[8px] size-[30px]"
           />

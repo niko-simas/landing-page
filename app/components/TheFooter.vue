@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+
 const navLinks = [
   { label: 'Cara Kerja', icon: 'favourites' },
   { label: 'Fitur', icon: 'telephone' }
@@ -22,7 +24,7 @@ const contactLinks = [
             <div class="flex w-[320px] shrink-0 flex-col items-start gap-[16px]">
               <div class="flex items-center gap-[12px]">
                 <img
-                  src="/asssets/Icons/graduation-cap.svg"
+                  :src="getIconUrl('graduation-cap')"
                   alt="SIMAS"
                   class="size-[36px]"
                 />
@@ -37,7 +39,7 @@ const contactLinks = [
               <div class="flex w-[140px] shrink-0 flex-col items-start gap-[12px]">
                 <h4 class="pb-[4px] text-[14px] font-semibold leading-[20px] text-[#08201d]">Navigasi</h4>
                 <NuxtLink v-for="link in navLinks" :key="link.label" :to="`#${link.label.toLowerCase().replace(' ', '-')}`" class="flex items-center gap-[8px]">
-                  <img :src="`/asssets/Icons/${link.icon}.svg`" :alt="link.label" class="size-[14px]" />
+                  <img :src="getIconUrl(link.icon)" :alt="link.label" class="size-[14px]" />
                   <span class="text-[14px] font-normal leading-[20px] text-[#4f625f]">{{ link.label }}</span>
                 </NuxtLink>
               </div>
@@ -46,7 +48,7 @@ const contactLinks = [
               <div class="flex w-[140px] shrink-0 flex-col items-start gap-[12px]">
                 <h4 class="pb-[4px] text-[14px] font-semibold leading-[20px] text-[#08201d]">Kontak</h4>
                 <NuxtLink v-for="link in contactLinks" :key="link.label" :to="'#'" class="flex items-center gap-[8px]">
-                  <img :src="`/asssets/Icons/${link.icon}.svg`" :alt="link.label" class="size-[14px]" />
+                  <img :src="getIconUrl(link.icon)" :alt="link.label" class="size-[14px]" />
                   <span class="text-[14px] font-normal leading-[20px] text-[#4f625f]">{{ link.label }}</span>
                 </NuxtLink>
               </div>

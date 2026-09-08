@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+
 const benefits = [
   'Notifikasi kehadiran anak saat tiba di sekolah',
   'Pesan aman, hanya terlihat oleh orang tua yang bersangkutan',
@@ -16,7 +18,7 @@ const benefits = [
           <div class="flex items-center gap-[16px] rounded-[12px] border border-[rgba(4,151,135,0.15)] bg-white p-[16px] shadow-[0px_2px_8px_rgba(8,32,29,0.04)]">
             <div class="relative flex size-[48px] shrink-0 items-center justify-center rounded-full bg-[rgba(4,151,135,0.1)]">
               <img
-                src="/asssets/Icons/bell-ring-2.svg"
+                :src="getIconUrl('bell-ring-2')"
                 alt="Bell"
                 class="size-[20px]"
               />
@@ -41,7 +43,7 @@ const benefits = [
         <div class="mt-[8px] flex flex-col items-start gap-[16px]">
           <div v-for="benefit in benefits" :key="benefit" class="flex items-center gap-[12px]">
             <img
-              src="/asssets/Icons/circle-check.svg"
+              :src="getIconUrl('circle-check')"
               alt="Check"
               class="size-[24px]"
             />

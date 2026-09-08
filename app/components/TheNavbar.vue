@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const getIconUrl = (name: string) => new URL(`~/asssets/Icons/${name}.svg`, import.meta.url).href
+
 const route = useRoute()
 
 const navItems = [
@@ -50,7 +52,7 @@ onMounted(() => {
         class="flex items-center gap-[8px] shrink-0"
       >
         <img
-          src="/asssets/Icons/graduation-cap.svg"
+          :src="getIconUrl('graduation-cap')"
           alt="SIMAS Logo"
           class="size-[30px]"
         />
