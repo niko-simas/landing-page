@@ -16,9 +16,9 @@ useSeoMeta({
         <HeroSection />
       </section>
 
-      <!-- Cara Kerja Section -->
-      <section id="cara-kerja">
-        <HowItWorksSection />
+      <!-- Tantangan Section -->
+      <section id="tantangan">
+        <ChallengesSection />
       </section>
 
       <!-- Fitur Section -->

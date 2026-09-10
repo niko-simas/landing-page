@@ -54,7 +54,7 @@ const getIllustration = (name: string) => {
 
     <!-- Main Content Container -->
     <div class="relative z-10 flex h-full w-full items-center">
-      <div class="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between gap-32 px-6">
+      <div class="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between gap-32 px-[40px]">
         <!-- Left Content: Text & CTAs -->
         <div class="flex w-full max-w-[672px] shrink-0 items-center">
           <!-- Main Card Container - Exact Figma Design -->
