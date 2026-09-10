@@ -26,6 +26,11 @@ useSeoMeta({
         <FiturSection />
       </section>
 
+      <!-- Transformation Section -->
+      <section id="transformasi">
+        <TransformationSection />
+      </section>
+
       <!-- Komunikasi Section -->
       <section id="komunikasi">
         <CommunicationSection />
