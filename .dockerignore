@@ -5,6 +5,8 @@ node_modules
 .gitignore
 Dockerfile
 .dockerignore
+docker-compose.yml
+package-lock.json
 README.md
 npm-debug.log
 *.md

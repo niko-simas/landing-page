@@ -1,17 +1,17 @@
 # syntax=docker/dockerfile:1
 
 # ── Build stage ──────────────────────────────────────────────
-FROM node:22-alpine AS build
+FROM oven/bun:1-alpine AS build
 
 WORKDIR /app
 
 # Install dependencies first (better layer caching)
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
 # Copy source and build
 COPY . .
-RUN npm run build
+RUN bun run build
 
 # ── Production stage ─────────────────────────────────────────
 FROM node:22-alpine AS production
