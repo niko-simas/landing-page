@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const illustrations = import.meta.glob('~/asssets/illustrations/*', { eager: true, as: 'url' })
+const illustrations = import.meta.glob('../asssets/illustrations/*', { eager: true, as: 'url' })
 
 const getIllustration = (name: string) => {
   if (name.includes('.')) {
-    const key = `/asssets/illustrations/${name}`
+    const key = `../asssets/illustrations/${name}`
     return illustrations[key] || ''
   }
-  const key = `/asssets/illustrations/${name}.svg`
+  const key = `../asssets/illustrations/${name}.svg`
   return illustrations[key] || ''
 }
 

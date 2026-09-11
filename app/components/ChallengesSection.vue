@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url' })
 
 const getIcon = (name: string) => {
-  const key = `/asssets/Icons/${name}.svg`
+  const key = `../asssets/Icons/${name}.svg`
   return icons[key] || ''
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Load all icons from app/asssets/Icons
-const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
+const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url' })
 
 const getIcon = (name: string) => {
   // Map icon names to actual file names
@@ -11,7 +11,7 @@ const getIcon = (name: string) => {
     building: 'factory'
   }
   const mappedName = iconMap[name] || name
-  const key = `/asssets/Icons/${mappedName}.svg`
+  const key = `../asssets/Icons/${mappedName}.svg`
   return icons[key] || ''
 }
 

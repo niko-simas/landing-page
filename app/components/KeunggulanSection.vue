@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
-const illustrations = import.meta.glob('~/asssets/illustrations/*', { eager: true, as: 'url' })
+const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url' })
+const illustrations = import.meta.glob('../asssets/illustrations/*', { eager: true, as: 'url' })
 
 const getIcon = (name: string) => {
   const iconMap: Record<string, string> = {

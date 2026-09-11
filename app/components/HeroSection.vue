@@ -1,20 +1,20 @@
 <script setup lang="ts">
 // Same pattern as other components
-const icons = import.meta.glob('~/asssets/Icons/*.svg', { eager: true, as: 'url' })
-const illustrations = import.meta.glob('~/asssets/illustrations/*', { eager: true, as: 'url' })
+const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url' })
+const illustrations = import.meta.glob('../asssets/illustrations/*', { eager: true, as: 'url' })
 
 const getIcon = (name: string) => {
-  const key = `/asssets/Icons/${name}.svg`
+  const key = `../asssets/Icons/${name}.svg`
   return icons[key] || ''
 }
 
 const getIllustration = (name: string) => {
   // Handle both .svg and .png extensions
   if (name.includes('.')) {
-    const key = `/asssets/illustrations/${name}`
+    const key = `../asssets/illustrations/${name}`
     return illustrations[key] || ''
   }
-  const key = `/asssets/illustrations/${name}.svg`
+  const key = `../asssets/illustrations/${name}.svg`
   return illustrations[key] || ''
 }
 </script>
@@ -115,7 +115,7 @@ const getIllustration = (name: string) => {
           <div class="relative">
             <!-- App Image -->
             <img
-              :src="getIllustration('simasmobileapp.png')"
+              :src="getIllustration('app/asssets/illustrations/simasmobileapp.png')"
               alt="SIMAS App"
               class="h-[650px] w-auto object-contain"
             />
