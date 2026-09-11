@@ -8,12 +8,12 @@ const getIcon = (name: string) => {
     'bell-ring-2': 'bell-ring'
   }
   const mappedName = iconMap[name] || name
-  const key = `/asssets/Icons/${mappedName}.svg`
+  const key = `../asssets/Icons/${mappedName}.svg`
   return icons[key] || ''
 }
 
 const getIllustration = (name: string) => {
-  const key = `/asssets/illustrations/${name}`
+  const key = `../asssets/illustrations/${name}`
   return illustrations[key] || ''
 }
 
