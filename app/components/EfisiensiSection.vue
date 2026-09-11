@@ -3,7 +3,8 @@ const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url
 
 const getIcon = (name: string) => {
   const key = `../asssets/Icons/${name}.svg`
-  return icons[key] || ''
+  const mod = icons[key]
+  return typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
 }
 
 const beforeItems = [

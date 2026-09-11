@@ -2,12 +2,14 @@
 const illustrations = import.meta.glob('../asssets/illustrations/*', { eager: true, as: 'url' })
 
 const getIllustration = (name: string) => {
+  const resolve = (mod: unknown): string =>
+    typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
   if (name.includes('.')) {
     const key = `../asssets/illustrations/${name}`
-    return illustrations[key] || ''
+    return resolve(illustrations[key])
   }
   const key = `../asssets/illustrations/${name}.svg`
-  return illustrations[key] || ''
+  return resolve(illustrations[key])
 }
 
 const features = [

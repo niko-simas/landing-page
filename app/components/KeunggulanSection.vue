@@ -9,12 +9,14 @@ const getIcon = (name: string) => {
   }
   const mappedName = iconMap[name] || name
   const key = `../asssets/Icons/${mappedName}.svg`
-  return icons[key] || ''
+  const mod = icons[key]
+  return typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
 }
 
 const getIllustration = (name: string) => {
   const key = `../asssets/illustrations/${name}`
-  return illustrations[key] || ''
+  const mod = illustrations[key]
+  return typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
 }
 
 const benefits = [

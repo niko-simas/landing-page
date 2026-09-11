@@ -3,19 +3,22 @@
 const icons = import.meta.glob('../asssets/Icons/*.svg', { eager: true, as: 'url' })
 const illustrations = import.meta.glob('../asssets/illustrations/*', { eager: true, as: 'url' })
 
+const getUrl = (mod: unknown): string =>
+  typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
+
 const getIcon = (name: string) => {
   const key = `../asssets/Icons/${name}.svg`
-  return icons[key] || ''
+  return getUrl(icons[key])
 }
 
 const getIllustration = (name: string) => {
   // Handle both .svg and .png extensions
   if (name.includes('.')) {
     const key = `../asssets/illustrations/${name}`
-    return illustrations[key] || ''
+    return getUrl(illustrations[key])
   }
   const key = `../asssets/illustrations/${name}.svg`
-  return illustrations[key] || ''
+  return getUrl(illustrations[key])
 }
 </script>
 
@@ -115,7 +118,7 @@ const getIllustration = (name: string) => {
           <div class="relative">
             <!-- App Image -->
             <img
-              :src="getIllustration('app/asssets/illustrations/simasmobileapp.png')"
+              :src="getIllustration('simasmobileapp.png')"
               alt="SIMAS App"
               class="h-[650px] w-auto object-contain"
             />

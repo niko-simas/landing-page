@@ -12,7 +12,8 @@ const getIcon = (name: string) => {
   }
   const mappedName = iconMap[name] || name
   const key = `../asssets/Icons/${mappedName}.svg`
-  return icons[key] || ''
+  const mod = icons[key]
+  return typeof mod === 'string' ? mod : ((mod as { default?: string })?.default ?? '')
 }
 
 const navLinks = [
